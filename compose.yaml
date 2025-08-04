@@ -1,0 +1,8 @@
+﻿services:
+  lawyer.api.shared.webapi:
+    image: lawyer.api.shared.webapi
+    build:
+      context: .
+      dockerfile: lawyer.api.shared.webapi/Dockerfile
+    ports:
+      - "8082:8080"

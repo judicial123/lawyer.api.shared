@@ -4,6 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,6 +22,12 @@
   <ItemGroup>
     <ProjectReference Include="..\lawyer.api.shared.application\lawyer.api.shared.application.csproj" />
     <ProjectReference Include="..\lawyer.api.shared.datastore.mssql\lawyer.api.shared.datastore.mssql.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\.dockerignore">
+      <Link>.dockerignore</Link>
+    </Content>
   </ItemGroup>
 
 </Project>
