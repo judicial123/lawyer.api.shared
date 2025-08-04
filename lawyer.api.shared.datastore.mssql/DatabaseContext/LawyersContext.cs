@@ -11,6 +11,7 @@ public class LawyersContext : DbContext
     }
 
     public DbSet<ExampleEntity> Examples { get; set; }
+    public DbSet<CityEntity> Cities { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -29,4 +30,5 @@ public class LawyersContext : DbContext
         }
 
         return base.SaveChangesAsync(cancellationToken);
-    }}
+    }
+}
