@@ -3,6 +3,6 @@ using MediatR;
 
 namespace lawyer.api.shared.application.UseCases.Country.GetAll;
 
-public class GetAllCountryQuery : IRequest<List<CountryDto>>, IRequest<CountryDto>
+public class GetAllCountryQuery : IRequest<List<CountryQueryDto>>, IRequest<CountryQueryDto>
 {
 }

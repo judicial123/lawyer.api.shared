@@ -23,14 +23,14 @@ public class CountryController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<CountryDto>>> Get()
+    public async Task<ActionResult<List<CountryQueryDto>>> Get()
     {
         var entities = await _mediator.Send(new GetAllCountryQuery());
         return Ok(entities);
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<CountryDto>> Get(Guid id)
+    public async Task<ActionResult<CountryQueryDto>> Get(Guid id)
     {
         var entity = await _mediator.Send(new GetByIdCountryQuery(id));
         return Ok(entity);
