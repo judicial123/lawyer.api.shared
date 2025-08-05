@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using lawyer.api.shared.datastore.mssql.Model.Common;
 
@@ -8,4 +9,6 @@ public class CountryEntity : EFEntity
 {
     [DatabaseGenerated(DatabaseGeneratedOption.None)]
     public string Name { get; set; }
+
+    public ICollection<CityEntity> Cities { get; set; } = new List<CityEntity>();
 }
