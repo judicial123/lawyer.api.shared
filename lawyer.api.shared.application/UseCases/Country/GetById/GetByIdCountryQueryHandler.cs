@@ -1,12 +1,11 @@
 using AutoMapper;
 using lawyer.api.shared.application.Contracts.Interfaces.Persistence.Country;
 using lawyer.api.shared.application.DTO;
-using lawyer.api.shared.domain;
 using MediatR;
 
 namespace lawyer.api.shared.application.UseCases.Country.GetById;
 
-public class GetByIdCountryQueryHandler : IRequestHandler<GetByIdCountryQuery, CountryDto>
+public class GetByIdCountryQueryHandler : IRequestHandler<GetByIdCountryQuery, CountryQueryDto>
 {
     private readonly IMapper _mapper;
     private readonly ICountryQueryRepository _query;
@@ -19,9 +18,9 @@ public class GetByIdCountryQueryHandler : IRequestHandler<GetByIdCountryQuery, C
         _query = query;
     }
 
-    public async Task<CountryDto> Handle(GetByIdCountryQuery request, CancellationToken cancellationToken)
+    public async Task<CountryQueryDto> Handle(GetByIdCountryQuery request, CancellationToken cancellationToken)
     {
-        var entity = await _query.GetByIdAsync(request.Id, nameof(Country.Cities));
-        return _mapper.Map<CountryDto>(entity);
+        var entity = await _query.GetByIdAsync(request.Id, "Cities");
+        return _mapper.Map<CountryQueryDto>(entity);
     }
 }
