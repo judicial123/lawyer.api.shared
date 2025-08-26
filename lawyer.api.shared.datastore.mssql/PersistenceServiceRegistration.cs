@@ -1,11 +1,13 @@
 using lawyer.api.shared.application.Contracts.Interfaces.Persistence.Example;
 using lawyer.api.shared.application.Contracts.Interfaces.Persistence.City;
 using lawyer.api.shared.application.Contracts.Interfaces.Persistence.Country;
+using lawyer.api.shared.application.Contracts.Interfaces.Persistence.SocialNetwork;
 using lawyer.api.shared.datastore.mssql.DatabaseContext;
 using lawyer.api.shared.datastore.mssql.Model.MappingProfile;
 using lawyer.api.shared.datastore.mssql.Repositories.Example;
 using lawyer.api.shared.datastore.mssql.Repositories.City;
 using lawyer.api.shared.datastore.mssql.Repositories.Country;
+using lawyer.api.shared.datastore.mssql.Repositories.SocialNetwork;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,6 +28,8 @@ public static class PersistenceServiceRegistration
         services.AddScoped<ICityQueryRepository, CityQueryRepository>();
         services.AddScoped<ICountryCommandRepository, CountryCommandRepository>();
         services.AddScoped<ICountryQueryRepository, CountryQueryRepository>();
+        services.AddScoped<ISocialNetworkCommandRepository, SocialNetworkCommandRepository>();
+        services.AddScoped<ISocialNetworkQueryRepository, SocialNetworkQueryRepository>();
 
         return services;
     }
