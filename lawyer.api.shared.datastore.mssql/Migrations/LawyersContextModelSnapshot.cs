@@ -94,6 +94,27 @@ namespace lawyer.api.shared.datastore.mssql.Migrations
                     b.ToTable("Examples", "shared");
                 });
 
+            modelBuilder.Entity("lawyer.api.shared.datastore.mssql.Model.SocialNetworkEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SocialNetworks", "shared");
+                });
+
             modelBuilder.Entity("lawyer.api.shared.datastore.mssql.Model.CityEntity", b =>
                 {
                     b.HasOne("lawyer.api.shared.datastore.mssql.Model.CountryEntity", "Country")
